@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Modificar  Usuario</title>
+</head>
+<body>
+    <h1>Modificar Usuario</h1>
+    <form action="/usuario/actualizar/<%= usuario.id%>" method="POST">       
+        <table>
+            <tr>
+               <td>
+                 <label for="">Nombre:</label>
+               </td> 
+               <td>
+                <input type="text"   id="nombre" name="nombre" value="<%= usuario.nombre %>" required>
+               </td> 
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Descripción:</label>
+                </td> 
+                <td>
+                    <textarea id="descripcion" name="descripcion" required><%= usuario.descripcion %></textarea>
+                </td> 
+             </tr>
+             <tr>
+                <td align="center" colspan="2">
+                    <button type="submit">Actualizar</button>            
+                </td> 
+             </tr>
+        </table>                        
+        <br>        
+    </form>
+    <a href="/">Volver a la Lista</a>
+</body>
+</html>
