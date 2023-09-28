@@ -6,8 +6,51 @@
     <title>Lista de Usuarios</title>
 </head>
 <body>
-    <h1>Lista de Usuarios</h1>
-    <a href="/usuario/crear">Crear Nuevo Elemento</a>
+    <h1>Lista de Usuarios y consulta de facturas</h1>
+    <table>        
+        <tr>
+            <td colspan="4" >
+              <h2>
+                Consultar Facturas
+              </h2>
+            </td>
+        </tr>
+        <tr>            
+            <td>
+                    <!-- Casilla de verificación 1 -->
+                <input type="radio" id="opcion1" name="facturas" value="opcion1">
+                <label for="opcion1">Pagadas</label><br>
+            </td>
+            <td>
+                <!-- Casilla de verificación 2 -->
+                <input type="radio" id="opcion2" name="facturas" value="opcion2">
+                <label for="opcion2">Pendientes de pago</label><br>
+            </td>
+            <td>
+                <!-- Casilla de verificación 3 -->
+                <input type="radio" id="opcion3" name="facturas" value="opcion3">
+                <label for="opcion3">Todas</label><br>
+            </td>
+            <td>
+                <form action="/usuario/eliminar/" method="GET" style="display: inline;">                    
+                    <button type="submit">Consultar</button>
+                </form>
+            </td>
+        </tr>        
+    </table>
+
+    <table>        
+        <tr>
+            <td colspan="4" >
+              <h2>
+                Gestionar Usuarios
+              </h2>
+            </td>
+        </tr>        
+    </table>
+    
+    
+    
     <ul>
         <table>
         <% listaUsuario.forEach(function(usuario) { %>            
