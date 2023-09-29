@@ -18,12 +18,11 @@ const usuarioControlador = {
 
   listarFacturas(req, res) {            
       
-      const { nif, fechaIni, fechaFin, ejercicio, tipoFac } = req.body;                                
-
+      const { nif, fechaIni, fechaFin, ejercicio, tipoFac } = req.body;                                      
       //Usuario.actualizar(req.params.id, usuario, () 
-      Usuario.obtenerFacturas(nif,tipoFac,fechaIni,fechaFin,ejercicio,(listaFacturas) => {   
-        console.log(listaFacturas);
-         res.render('usuarioListarFacturas', { listaFacturas });
+      Usuario.obtenerFacturas(nif,tipoFac,fechaIni,fechaFin,ejercicio,(listaFacturas) => {           
+        console.log('Acá',listaFacturas,nif,tipoFac,fechaIni,fechaFin,ejercicio);
+         res.render('usuarioListarFacturas', { listaFacturas,nif,tipoFac,fechaIni,fechaFin });
       });                                         
   },
 

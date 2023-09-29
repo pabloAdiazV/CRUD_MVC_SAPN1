@@ -150,8 +150,8 @@ class Usuario {
                       
                     
     
-                    console.log(jsonData);
-                    console.log(JSON.stringify(result));
+                    //console.log(jsonData);
+                    //console.log(JSON.stringify(result));
                     contenido = "";
                     cont=0;
     
@@ -171,17 +171,7 @@ class Usuario {
                         }                        
                     );
     
-                    tabla = `
-                        <!DOCTYPE html>
-                              <html>                                               
-                                <head>                                                                                
-                                     <title>Partidas Individuales</title>    
-                                     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>        
-                                     <link rel='stylesheet' type='text/css' href='https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css'>      
-                                     <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>            
-                                     <script type='text/javascript' charset='utf8' src='https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js'></script>
-                                </head>
-                                <body>
+                    tabla = `                        
                                   <table id='miTabla' class='tabla'>                            
                                    <thead>                                
                                     <tr>                                                                           
@@ -220,26 +210,23 @@ class Usuario {
                                       <th title='AUGBL' >Doc.comp.</th>
                                       <th title='BSCHL' >Clave contab.</th>
                                       <th title='BKTXT' >Txt.cab.doc.</th>                                                            
-                                    </tr>                            
-                                   </thead>                            
+                                    </tr>  
+                                    </thead>                          
                                     <tbody id='table-body'>   
-                                                `+contenido+`   <script> $('#miTabla').DataTable();</script>                     
-                                    </tbody>   
-                                  </table>                    `;  
+                                              `+contenido+`   <script> $('#miTabla').DataTable();</script>                     
+                                  </tbody>  </table>                    `;  
 
                                   //res.render('partidasIndividuales', { tabla, nif, fechaIni, fechaFin  });
+                                  
                                   callback(tabla); // CallBAck es la respuesta.
-
-    
-    
-                                 
+                                         
                     return [2 /*return*/];
             }
         });
     }); };
     selectLoginIPsByUserID();                 
 
-    callback(''); // CallBAck es la respuesta.
+    //callback(''); // CallBAck es la respuesta.
 
     /*db.all('SELECT * FROM usuario', (err, rows) => {
       if (err) throw err;

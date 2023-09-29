@@ -3,31 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>   
-    
-    <title>Lista de Facturas</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'> 
+    <link rel='stylesheet' type='text/css' href='https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css'>      
+    <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>            
+    <script type='text/javascript' charset='utf8' src='https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js'></script>       
+    <title>Lista de Tareas</title>
 </head>
 <body>
     <br>
-        <a href="/">Volver al Menú</a>  
-    <table style="border-collapse: separate; border-spacing: 10px;">        
-        <tr>
-            <td colspan="4" >
-              <h2>
-                Lista de Facturas
-              </h2>
-            </td>
-        </tr>    
-        <tr>
-            <td>
-                <a href="/usuario/crear">Crear Nuevo Elemento</a>
-            </td>
-        </tr>    
-    </table>
+    <a href="/usuario/facturas">Volver</a> <!-- Enlace a la página de inicio de sesión -->
+    <h1>Partidas Individuales Acreedor: <%= nif; %> entre <%= fechaIni; %> y <%= fechaFin; %>   </h1>
     
-    <br>
-    <br>
-    
-    
+    <ul>
+        <!-- ... -->
+    </ul>
+    <h1>Lista de Partidas Individuales </h1>
+    <ul>
+     <!--<div  style="overflow: scroll; width: 80%; height: 500px;" >-->
+        <%- listaFacturas; %>                
+     <!--</div>-->
+    </ul>    
 </body>
 </html>
