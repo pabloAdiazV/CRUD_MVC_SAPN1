@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>   
+    <title>Lista de Usuarios</title>
+</head>
+<body>
+    <form action="/usuario/listarFacturas" method="POST" style="display: inline;">                    
+    <br>
+        <a href="/">Volver al Menú</a>
+    <h1>Consulta de facturas</h1>
+    <table>                
+        <tr>
+            <td colspan="4">
+                <table  style="border-collapse: separate; border-spacing: 10px;" >
+                    <tr>
+                        <th style="text-align: left;">
+                            <label for="nif">NIF:</label>
+                        </th>
+                        <td>
+                            <input type="text" value="97780969" id="nif" name="nif" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: left;">
+                            <label for="ejercicio">Ejercicio:</label>
+                        </th>
+                        <td>
+                            <input type="text" value="2023" id="ejercicio" name="ejercicio" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: left;">
+                            <label for="FechaIni">Fecha Ini:</label>
+                        </th>
+                        <td>
+                            <input type="date"  value="2023-01-01" id="fechaIni" name="fechaIni" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: left;">
+                            <label for="FechaFin">Fecha Fin:</label>
+                        </th>
+                        <td>
+                            <input type="date" value="2023-01-01" id="fechaFin" name="fechaFin" required>
+                        </td>
+                    </tr>                                                                                                             
+                </table>
+            </td>
+        </tr>
+        <tr>            
+            <td>
+                    <!-- Casilla de verificación 1 -->
+                <input type="radio" id="opcion1" name="tipoFac" value="Pagadas" required>
+                <label for="opcion1">Pagadas</label><br>
+            </td>
+            <td>
+                <!-- Casilla de verificación 2 -->
+                <input type="radio" id="opcion2" name="tipoFac" value="Pendientes" >
+                <label for="opcion2">Pendientes de pago</label><br>
+            </td>
+            <td>
+                <!-- Casilla de verificación 3 -->
+                <input type="radio" id="opcion3" name="tipoFac" value="Todas" >
+                <label for="opcion3">Todas</label><br>
+            </td>
+            <td>                                                
+                <button type="submit" >Consultar</button>                                
+            </td>
+        </tr>        
+    </table>
+</form>                                
+      
+</body>
+</html>

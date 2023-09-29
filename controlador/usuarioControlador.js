@@ -8,6 +8,25 @@ const usuarioControlador = {
     });
   },
 
+  menuAdmin(req, res) {    
+    res.render('menuAdmin');
+  },
+
+  facturas(req, res) {    
+    res.render('usuarioFacturas');
+  },
+
+  listarFacturas(req, res) {            
+      
+      const { nif, fechaIni, fechaFin, ejercicio, tipoFac } = req.body;                                
+
+      //Usuario.actualizar(req.params.id, usuario, () 
+      Usuario.obtenerFacturas(nif,tipoFac,fechaIni,fechaFin,ejercicio,(listaFacturas) => {   
+        console.log(listaFacturas);
+         res.render('usuarioListarFacturas', { listaFacturas });
+      });                                         
+  },
+
   crear(req, res) {    
     res.render('usuarioCrear');
   },
@@ -16,14 +35,14 @@ const usuarioControlador = {
   guardar(req, res) {    
     const usuario = new Usuario(req.body.nombre, req.body.descripcion);
     Usuario.crear(usuario, () => {
-      res.redirect('/');
+      res.redirect('/usuario/listar');
     });
   },
 
 
   eliminar(req, res) {    
     Usuario.eliminar(req.params.id, () => {
-      res.redirect('/');
+      res.redirect('/usuario/listar');
     });
   },
 
@@ -37,7 +56,7 @@ const usuarioControlador = {
   actualizar(req, res) {
     const usuario = new Usuario(req.body.nombre, req.body.descripcion);
     Usuario.actualizar(req.params.id, usuario, () => {
-      res.redirect('/');
+      res.redirect('/usuario/listar');
     });
   },
 
