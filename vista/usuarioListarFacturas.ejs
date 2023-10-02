@@ -19,9 +19,52 @@
     </ul>
     <h1>Lista de Partidas Individuales </h1>
     <ul>
-     <!--<div  style="overflow: scroll; width: 80%; height: 500px;" >-->
-        <%- listaFacturas; %>                
-     <!--</div>-->
+        <table id='miTabla' class='tabla'>                            
+            <thead>                                
+             <tr>                                                                           
+               <th title='BUKRS' >Sociedad</th>
+               <th title='BELNR' >Documento</th>
+               <th title='GJAHR' >Ejercicio</th>
+               <th title='BUZEI' >Pos</th>
+               <th title='BUDAT' >F. contabilización</th>
+               <th title='SHKZG' >Debe/Haber</th>
+               <th title='KOART' >Clase cuenta</th>
+               <th title='KOSTL' >Centro Coste</th>
+               <th title='HKONT' >Libro mayor</th>
+               <th title='AUFNR' >Orden</th>
+               <th title='LSTAR' >Clase Actividad</th>
+               <th title='PSWSL' >Mon.libro mayor</th>
+               <th title='PSWBT' >Impte.libro mayor</th>
+               <th title='DMBTR' >Importe ML</th>
+               <th title='BLDAT' >Fecha documento</th>
+               <th title='CPUDT' >Registrado el</th>
+               <th title='FDTAG' >Fecha tes.</th>
+               <th title='BLART' >Clase documento</th>
+               <th title='XBLNR' >Referencia</th>
+               <th title='SAKNR' >Cta.mayor</th>
+               <th title='PRCTR' >CeBe</th>
+               <th title='XREF1' >Clave ref.1</th>
+               <th title='XREF2' >Clave ref.2</th>
+               <th title='XREF3' >Clave ref.3</th>
+               <th title='ZUONR' >Asignación</th>
+               <th title='SGTXT' >Texto</th>
+               <th title='EBELN' >Doc.compras</th>
+               <th title='EBELP' >Posición</th>
+               <th title='STBLG' >Anulado con</th>
+               <th title='BSTAT' >Status doc.</th>
+               <th title='MWSKZ' >Ind.impuestos</th>
+               <th title='QSSKZ' >Ind.ret.</th>
+               <th title='AUGBL' >Doc.comp.</th>
+               <th title='BSCHL' >Clave contab.</th>
+               <th title='BKTXT' >Txt.cab.doc.</th>                                                            
+             </tr>  
+             </thead>                          
+             <tbody id='table-body'>   
+                <%- listaFacturas; %>          
+                <script> $('#miTabla').DataTable();</script>                                                       
+            </tbody>  
+        </table>                          
+     
     </ul>    
 </body>
 </html>

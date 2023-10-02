@@ -47,8 +47,7 @@ class Usuario {
   }
 
   static obtenerFacturas(nif, tipoFac, fechaIni, fechaFin, ejercicio, callback) {    
-    
-    console.log("Esta es la función acrear");
+        
     "use strict";
     var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
         function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -86,6 +85,7 @@ class Usuario {
             if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
         }
     };
+
     Object.defineProperty(exports, "__esModule", { value: true });
     var client_1 = require("@odata/client");
     console.log('Accessing data using OData Client');
@@ -104,62 +104,28 @@ class Usuario {
                 case 0:  
                     var sociedad  = 'EFIG';                                  
                     var fechaCont = "datetime'2023-01-13T00:00:00'";
-                    var fechaReg  = "datetime'2023-01-24T00:00:00'";                
-                    
-                    var ejercicioFormat = fechaIni[0]+fechaIni[1]+fechaIni[2]+fechaIni[3];
-                    
+                    var fechaReg  = "datetime'2023-01-24T00:00:00'";                                    
+                    var ejercicioFormat = fechaIni[0]+fechaIni[1]+fechaIni[2]+fechaIni[3];                    
                     var fechaIniFormat  = "datetime'"+fechaIni+"T00:00:00'";                
-                    var fechaFinFormat  = "datetime'"+fechaFin+"T00:00:00'";                    
-                    
-                    console.log(fechaIniFormat);
-                    console.log(fechaFinFormat);
-                    console.log(ejercicioFormat);
-                    
-                    
-                    
+                    var fechaFinFormat  = "datetime'"+fechaFin+"T00:00:00'";                                        
                     var tercero   = nif;
                     var textoCabecera   = "20230113-E9962";
                     var cuentaIni   = "1000000000";
                     var cuentaFin   = "1999999999";
                       
                     filter = client1.newFilter().property("BUKRS").eq(sociedad).property("GJAHR").eq(ejercicioFormat).property("ZUONR").eq(tercero).property("BLDAT").ge(fechaIniFormat).property("BLDAT").le(fechaFinFormat);   
-                    //filter = client1.newFilter().property("BUKRS").eq(sociedad).property("GJAHR").eq(ejercicio).property("ZUONR").eq(tercero).property("BKTXT").eq(textoCabecera).property("CPUDT").ge(fechaIni).property("CPUDT").le(fechaFin).property("HKONT").ge(cuentaIni).property("HKONT").le(cuentaFin);   
-                    //filter = client1.newFilter().property("BUKRS").eq(sociedad).property("GJAHR").eq(ejercicio).property("ZUONR").eq(tercero).property("BKTXT").eq(textoCabecera).property("CPUDT").ge(fechaIni).property("CPUDT").le(fechaFin).property("HKONT").ge(cuentaIni).property("HKONT").le(cuentaFin);   
-                    //filter = client1.newFilter().property("BUKRS").eq(sociedad).property("GJAHR").eq(ejercicio).property("BUDAT").eq(fechaCont).property("CPUDT").eq(fechaReg).property("ZUONR").eq(tercero);                
+                    //filter = client1.newFilter().property("BUKRS").eq(sociedad).property("GJAHR").eq(ejercicio).property("ZUONR").eq(tercero).property("BKTXT").eq(textoCabecera).property("CPUDT").ge(fechaIni).property("CPUDT").le(fechaFin).property("HKONT").ge(cuentaIni).property("HKONT").le(cuentaFin);                                                         
                     //filter = client1.newFilter().property("BUKRS").eq(sociedad).property("GJAHR").eq(ejercicio).property("ZUONR").eq(tercero).property("CPUDT").eq(fechaReg).property("BUDAT").eq(fechaCont).property("BKTXT").eq(textoCabecera);                
                     return [4 /*yield*/, client1.newRequest({
                             collection: "ZGW_FI_BKPF_BSEGSet",
                             params: client1.newParam().filter(filter) // odata param
                         })];
                 case 1:
-                    result = _a.sent();
-                    console.log('Executed OData Query (1) successfully.');
-                    //console.log(JSON.stringify(result));
-                    //console.log(JSON.stringify(filter));
-    
-                    //jsonData = JSON.stringify(result);
-                    jsonData = result;
-                    
-                   /* var http = require('http');
-                    var server = http.createServer();*/
-    
-                    /************/
-    
-                    
-                     //jsonData = {"d":{"results":[{"__metadata":{"id":"http://172.23.4.5:8003/sap/opu/odata/SAP/ZGW_FI_WEB_PROVEEDORES_SRV/ZGW_FI_BKPF_BSEGSet(BUKRS='EFIG',BELNR='0800000018',GJAHR='2023',BUZEI='001')","uri":"http://172.23.4.5:8003/sap/opu/odata/SAP/ZGW_FI_WEB_PROVEEDORES_SRV/ZGW_FI_BKPF_BSEGSet(BUKRS='EFIG',BELNR='0800000018',GJAHR='2023',BUZEI='001')","type":"ZGW_FI_WEB_PROVEEDORES_SRV.ZGW_FI_BKPF_BSEG"},"BUKRS":"EFIG","BELNR":"0800000018","GJAHR":"2023","BUZEI":"001","BUDAT":"/Date(1673568000000)/","SHKZG":"H","KOART":"K","KOSTL":"","HKONT":"2425070100","AUFNR":"","LSTAR":"","PSWSL":"COP","PSWBT":"       7238.42","DMBTR":"       7238.42","BLDAT":"/Date(1673568000000)/","CPUDT":"/Date(1674518400000)/","FDTAG":null,"BLART":"99","XBLNR":"","SAKNR":"2425070100","PRCTR":"","XREF1":"97780969","XREF2":"","XREF3":"TRIVIÑO RODRIGUEZ MA","ZUONR":"97780969","SGTXT":"","EBELN":"","EBELP":"00000","STBLG":"0740000466","BSTAT":"","MWSKZ":"","QSSKZ":"","AUGBL":"0800000018","BSCHL":"35","BKTXT":"20230113-E9962"},{"__metadata":{"id":"http://172.23.4.5:8003/sap/opu/odata/SAP/ZGW_FI_WEB_PROVEEDORES_SRV/ZGW_FI_BKPF_BSEGSet(BUKRS='EFIG',BELNR='0800000018',GJAHR='2023',BUZEI='002')","uri":"http://172.23.4.5:8003/sap/opu/odata/SAP/ZGW_FI_WEB_PROVEEDORES_SRV/ZGW_FI_BKPF_BSEGSet(BUKRS='EFIG',BELNR='0800000018',GJAHR='2023',BUZEI='002')","type":"ZGW_FI_WEB_PROVEEDORES_SRV.ZGW_FI_BKPF_BSEG"},"BUKRS":"EFIG","BELNR":"0800000018","GJAHR":"2023","BUZEI":"002","BUDAT":"/Date(1673568000000)/","SHKZG":"S","KOART":"S","KOSTL":"","HKONT":"1110067092","AUFNR":"","LSTAR":"","PSWSL":"COP","PSWBT":"       7238.42","DMBTR":"       7238.42","BLDAT":"/Date(1673568000000)/","CPUDT":"/Date(1674518400000)/","FDTAG":null,"BLART":"99","XBLNR":"","SAKNR":"","PRCTR":"","XREF1":"97780969","XREF2":"","XREF3":"TRIVIÑO RODRIGUEZ MA","ZUONR":"97780969","SGTXT":"","EBELN":"","EBELP":"00000","STBLG":"0740000466","BSTAT":"","MWSKZ":"","QSSKZ":"","AUGBL":"0800000018","BSCHL":"40","BKTXT":"20230113-E9962"},{"__metadata":{"id":"http://172.23.4.5:8003/sap/opu/odata/SAP/ZGW_FI_WEB_PROVEEDORES_SRV/ZGW_FI_BKPF_BSEGSet(BUKRS='EFIG',BELNR='0800000018',GJAHR='2023',BUZEI='003')","uri":"http://172.23.4.5:8003/sap/opu/odata/SAP/ZGW_FI_WEB_PROVEEDORES_SRV/ZGW_FI_BKPF_BSEGSet(BUKRS='EFIG',BELNR='0800000018',GJAHR='2023',BUZEI='003')","type":"ZGW_FI_WEB_PROVEEDORES_SRV.ZGW_FI_BKPF_BSEG"},"BUKRS":"EFIG","BELNR":"0800000018","GJAHR":"2023","BUZEI":"003","BUDAT":"/Date(1673568000000)/","SHKZG":"H","KOART":"S","KOSTL":"0000398000","HKONT":"5803120000","AUFNR":"","LSTAR":"","PSWSL":"COP","PSWBT":"          0.00","DMBTR":"          0.00","BLDAT":"/Date(1673568000000)/","CPUDT":"/Date(1674518400000)/","FDTAG":null,"BLART":"99","XBLNR":"","SAKNR":"","PRCTR":"0000003980","XREF1":"97780969","XREF2":"","XREF3":"TRIVIÑO RODRIGUEZ MA","ZUONR":"97780969","SGTXT":"","EBELN":"","EBELP":"00000","STBLG":"0740000466","BSTAT":"","MWSKZ":"","QSSKZ":"","AUGBL":"","BSCHL":"50","BKTXT":"20230113-E9962"}]}}
-                      
-                    
-    
-                    //console.log(jsonData);
-                    //console.log(JSON.stringify(result));
-                    contenido = "";
-                    cont=0;
-    
+                  jsonData = _a.sent();                   
+                  contenido = "";
+                  cont=0;                                    
             
-                    //const tableBody = document.getElementById("table-body");
-            
-                    jsonData.d.results.forEach((item) => {
-                        //const row = document.createElement("tr");
+                    jsonData.d.results.forEach((item) => {                        
                         contenido = contenido+"<tr>";
                         for (const key in item) {    
                             if (cont > 0)                    
@@ -169,69 +135,13 @@ class Usuario {
                             contenido = contenido+"</tr>";
                             cont=0;
                         }                        
-                    );
-    
-                    tabla = `                        
-                                  <table id='miTabla' class='tabla'>                            
-                                   <thead>                                
-                                    <tr>                                                                           
-                                      <th title='BUKRS' >Sociedad</th>
-                                      <th title='BELNR' >Documento</th>
-                                      <th title='GJAHR' >Ejercicio</th>
-                                      <th title='BUZEI' >Pos</th>
-                                      <th title='BUDAT' >F. contabilización</th>
-                                      <th title='SHKZG' >Debe/Haber</th>
-                                      <th title='KOART' >Clase cuenta</th>
-                                      <th title='KOSTL' >Centro Coste</th>
-                                      <th title='HKONT' >Libro mayor</th>
-                                      <th title='AUFNR' >Orden</th>
-                                      <th title='LSTAR' >Clase Actividad</th>
-                                      <th title='PSWSL' >Mon.libro mayor</th>
-                                      <th title='PSWBT' >Impte.libro mayor</th>
-                                      <th title='DMBTR' >Importe ML</th>
-                                      <th title='BLDAT' >Fecha documento</th>
-                                      <th title='CPUDT' >Registrado el</th>
-                                      <th title='FDTAG' >Fecha tes.</th>
-                                      <th title='BLART' >Clase documento</th>
-                                      <th title='XBLNR' >Referencia</th>
-                                      <th title='SAKNR' >Cta.mayor</th>
-                                      <th title='PRCTR' >CeBe</th>
-                                      <th title='XREF1' >Clave ref.1</th>
-                                      <th title='XREF2' >Clave ref.2</th>
-                                      <th title='XREF3' >Clave ref.3</th>
-                                      <th title='ZUONR' >Asignación</th>
-                                      <th title='SGTXT' >Texto</th>
-                                      <th title='EBELN' >Doc.compras</th>
-                                      <th title='EBELP' >Posición</th>
-                                      <th title='STBLG' >Anulado con</th>
-                                      <th title='BSTAT' >Status doc.</th>
-                                      <th title='MWSKZ' >Ind.impuestos</th>
-                                      <th title='QSSKZ' >Ind.ret.</th>
-                                      <th title='AUGBL' >Doc.comp.</th>
-                                      <th title='BSCHL' >Clave contab.</th>
-                                      <th title='BKTXT' >Txt.cab.doc.</th>                                                            
-                                    </tr>  
-                                    </thead>                          
-                                    <tbody id='table-body'>   
-                                              `+contenido+`   <script> $('#miTabla').DataTable();</script>                     
-                                  </tbody>  </table>                    `;  
-
-                                  //res.render('partidasIndividuales', { tabla, nif, fechaIni, fechaFin  });
-                                  
-                                  callback(tabla); // CallBAck es la respuesta.
-                                         
+                    );                                                        
+                    callback(contenido); // CallBAck es la respuesta.                                         
                     return [2 /*return*/];
             }
         });
     }); };
-    selectLoginIPsByUserID();                 
-
-    //callback(''); // CallBAck es la respuesta.
-
-    /*db.all('SELECT * FROM usuario', (err, rows) => {
-      if (err) throw err;
-      callback(rows);
-    });*/
+    selectLoginIPsByUserID();                    
   }
 }
 
