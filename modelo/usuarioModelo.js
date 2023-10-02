@@ -98,7 +98,7 @@ class Usuario {
     });
     client1.setCredential({ username: "padiazv", password: "padiazv2023" });
     var selectLoginIPsByUserID = function () { return __awaiter(void 0, void 0, void 0, function () {
-        var filter, result, tabla, contenido, jsonData, cont;
+        var filter, result, tabla, contenido="",contenidoAux="", jsonData, cont=0, debeHaber, docCompensacion;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:  
@@ -122,18 +122,38 @@ class Usuario {
                         })];
                 case 1:
                   jsonData = _a.sent();                   
-                  contenido = "";
-                  cont=0;                                    
+                                                                      
             
                     jsonData.d.results.forEach((item) => {                        
-                        contenido = contenido+"<tr>";
-                        for (const key in item) {    
-                            if (cont > 0)                    
-                             contenido = contenido+"<td>"+item[key]+"</td>";                                                        
+                        debeHaber="H";
+                        docCompensacion="SI";
+                        contenidoAux="";
+
+                        for (const key in item) 
+                        {    
+                          if (cont > 0)                    
+                          { 
+                            if(cont == 6 & item[key] == 'S' )
+                               debeHaber='S';
+
+                            if(cont == 33 & item[key] == '' )
+                              docCompensacion='NO';
+                                                           
+                              contenidoAux = contenidoAux+"<td>"+item[key]+"</td>";                            
+                          }
                             cont++;
-                            }
-                            contenido = contenido+"</tr>";
-                            cont=0;
+                        }
+
+                        console.log(tipoFac);
+
+                        if(tipoFac=='Pagadas' & debeHaber=='H' & docCompensacion=='SI')                          
+                            contenido = contenido+"<tr>"+contenidoAux+"</tr>";   
+
+                        if(tipoFac=='Pendientes' & debeHaber=='H' & docCompensacion=='NO')                          
+                            contenido = contenido+"<tr>"+contenidoAux+"</tr>"; 
+                                                 
+
+                          cont=0;
                         }                        
                     );                                                        
                     callback(contenido); // CallBAck es la respuesta.                                         
