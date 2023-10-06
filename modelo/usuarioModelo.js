@@ -142,9 +142,7 @@ class Usuario {
                               contenidoAux = contenidoAux+"<td>"+item[key]+"</td>";                            
                           }
                             cont++;
-                        }
-
-                        console.log(tipoFac);
+                        }                        
 
                         if(tipoFac=='Pagadas' & debeHaber=='H' & docCompensacion=='SI')                          
                             contenido = contenido+"<tr>"+contenidoAux+"</tr>";   

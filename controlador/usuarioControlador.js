@@ -19,7 +19,7 @@ const usuarioControlador = {
   listarFacturas(req, res) {                  
       const { nif, fechaIni, fechaFin, ejercicio, tipoFac } = req.body;                                      
       Usuario.obtenerFacturas(nif,tipoFac,fechaIni,fechaFin,ejercicio,(listaFacturas) => {                   
-         res.render('usuarioListarFacturas', { listaFacturas,nif,tipoFac,fechaIni,fechaFin });
+         res.render('usuarioListarFacturas', { listaFacturas,nif,tipoFac,fechaIni,fechaFin, tipoFac });
       });                                         
   },
 
